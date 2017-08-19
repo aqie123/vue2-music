@@ -1,4 +1,4 @@
-一： 前期准备
+一： 前期准备 8/19
 	1.npm install -g npm   升级到最新
 	2.npm install cnpm -g --registry=https://registry.npm.taobao.org   安装cnpm
 	3.cnpm install bower -g
@@ -27,3 +27,11 @@
     1.tab导航栏 (m-header组件)
       app.vue引入，并输出
     2.route/index.js
+       a.引入
+       b.编写路由
+       c.app.vue 使用view-router
+    3.开发导航栏 (tab)
+      1.app.vue import
+      2.在components使用
+      3.在模板使用
+      
