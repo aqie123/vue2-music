@@ -23,4 +23,7 @@
 	7.新建组件，在route引入 
 	8.App.vue 添加route-view 切换路由 
 	9.cnpm install vue-lazyload vuex axios jsonp better-scroll create-keyframe-animation js-base64 lyric-parser good-storage --save
-四： 1.tab导航栏 2.
+四： 
+    1.tab导航栏 (m-header组件)
+      app.vue引入，并输出
+    2.
