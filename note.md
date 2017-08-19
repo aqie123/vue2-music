@@ -26,4 +26,4 @@
 四： 
     1.tab导航栏 (m-header组件)
       app.vue引入，并输出
-    2.
+    2.route/index.js
