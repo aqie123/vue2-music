@@ -41,4 +41,12 @@
       4.api/config.js
     5.recommend组件
       1.获取数据
+      2.开发轮播图组件
+        a.base/slider/slider.vue  base作为一个npm安装模块
+        b.slot
+        c.引入slider组件，然后注册
+        d.编写slider样式
+        e.better-scroll
+          1.ref html里面绑定
+        f.common/js/dom.js  dom相关代码
       
