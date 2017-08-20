@@ -34,4 +34,11 @@
       1.app.vue import
       2.在components使用
       3.在模板使用
+    4.jsonp
+      1.动态创建个script标签
+      2.js/jsonp.js
+      3.api/recommend.js
+      4.api/config.js
+    5.recommend组件
+      1.获取数据
       
