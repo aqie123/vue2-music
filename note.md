@@ -50,4 +50,9 @@
           1.ref html里面绑定
         f.common/js/dom.js  dom相关代码
         g.currentPageIndex: 指定当前页面
+     6.歌单详情页
+        1.dev-server.js  引入axios，编写api 
+        2.base/scroll/scroll.vue
+        3. :data="discList"
+        4.给scroll 一个引用
       
