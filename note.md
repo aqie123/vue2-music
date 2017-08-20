@@ -49,4 +49,5 @@
         e.better-scroll
           1.ref html里面绑定
         f.common/js/dom.js  dom相关代码
+        g.currentPageIndex: 指定当前页面
       
