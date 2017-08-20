@@ -26,6 +26,9 @@
                     </ul>
                 </div>
             </div>
+            <div class="loading-container" v-show="!discList.length">
+                <loading></loading>
+            </div>
         </scroll>
     </div>
 </template>
@@ -35,6 +38,7 @@
   import Slider from 'base/slider/slider'
   import {getRecommend, getDiscList} from 'api/recommend'
   import {ERR_OK} from 'api/config'
+  import Loading from 'base/loading/loading'
 
   export default {
     data() {
@@ -44,10 +48,12 @@
       }
     },
     created() {
+      /*
       setTimeout(() => {
         this._getRecommend()
       }, 2000)
-      // this._getRecommend()
+      */
+      this._getRecommend()
       this._getDiscList()
     },
     methods: {
@@ -76,7 +82,8 @@
     },
     components: {
       Slider,
-      Scroll
+      Scroll,
+      Loading
     }
   }
 </script>

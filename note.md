@@ -55,4 +55,7 @@
         2.base/scroll/scroll.vue
         3. :data="discList"
         4.给scroll 一个引用
+        5.img class="needsclick"
+        6.loading组件
+          在recommend引入
       
