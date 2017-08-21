@@ -62,4 +62,17 @@
         1.api/singer.js
         2.common/js/singer.js  抽象出歌手类
         3开发通讯录基础组件 listview ;并在singer.vue引入
-      
+     8.歌手详情页 (子路由)
+        1.index.js引入singer-detail.vue
+        2.vuex
+          a.初始化store
+          b.在入口文件main.js引入
+          c.singer.vue使用vuex;singer-detail取数据
+        3.歌手详情
+        4.歌单处理
+           a.common/js/song.js  song类
+           b.数据处理
+      9.music-list组件
+        1.singer-detail.vue 调用music-list组件
+        2.在music-list.vue填充数据
+      10.song-list组件
