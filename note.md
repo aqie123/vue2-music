@@ -58,4 +58,8 @@
         5.img class="needsclick"
         6.loading组件
           在recommend引入
+     7.歌手列表页
+        1.api/singer.js
+        2.common/js/singer.js  抽象出歌手类
+        3开发通讯录基础组件 listview ;并在singer.vue引入
       
