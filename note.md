@@ -89,8 +89,17 @@
         2.common/js/config.js
         3.新建player.vue，定义在app.vue
         4.player.vue控制播放器展示
-        5.点击歌曲播放
+        5.点击歌曲跳转到播放页面
            a.song-list 派发点击事件selectItem
            b.music-list接收派发select事件
            c.music-list 定义selectItem方法
            d.在store/actions.js定义动作,在music-list组件调用
+        6.播放器页面
+          a.点击返回  , mapMutations
+          b.设置切换动画,ref="cdWrapper"
+        7.播放功能
+          a.mapMutations 传递状态
+            watch playing状态
+          b.mapGetters: 'currentIndex','fullScreen','playlist','currentSong', 'playing'
+          c.前进后退
+            
