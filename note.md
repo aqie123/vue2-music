@@ -76,3 +76,9 @@
         1.singer-detail.vue 调用music-list组件
         2.在music-list.vue填充数据
       10.song-list组件
+        在music.vue引入
+        1.实现图片根据歌单列表上移
+          music-list.vue 在create函数
+        2.<scroll> 监听事件
+        3.通过scrollY值设置layer偏移量
+        4.watch
