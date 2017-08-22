@@ -82,3 +82,15 @@
         2.<scroll> 监听事件
         3.通过scrollY值设置layer偏移量
         4.watch
+      11.player-kernel
+        1.state.js 设置播放器参数
+          配置getters.js
+          mutation.js
+        2.common/js/config.js
+        3.新建player.vue，定义在app.vue
+        4.player.vue控制播放器展示
+        5.点击歌曲播放
+           a.song-list 派发点击事件selectItem
+           b.music-list接收派发select事件
+           c.music-list 定义selectItem方法
+           d.在store/actions.js定义动作,在music-list组件调用
