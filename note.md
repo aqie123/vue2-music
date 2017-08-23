@@ -108,4 +108,26 @@
           a.引入到player.vue
           b.进度条接收百分比  props ,watch percent
             在player.vue计算属性percent,传入到组件，此时跟随歌曲进度前进
+          c.给进度条添加touch事件,在methods定义事件回调函数
+            拖拽结束，派发事件
+            在player.vue监听派发事件  onProgressBarChange 实现拖拽
+          d.progressClick  进度条添加点击事件
+       9.   mini 下面圆形进度条 process-circle.vue
+          a.player.vue引入
+             slot  就是在组件内部插入
+       10.播放模式 (列表播放，单曲循环播放,随机播放)
+          a.player.vue mapGetters 添加mode
+             映射一个mutation
+          b.changeMode后，修改播放列表
+            mapGetters 添加 sequenceList
+            新建util.js
+            修改当前playList mapMutations
+            切换播放模式，会改变歌曲播放状态
+                watch 解决
+       11. audio播放结束 派发end事件
+          music-list.vue 添加 random事件
+            在store/actions.js添加randomPlay； 在mapActions引入
+          
+            
+          
             
