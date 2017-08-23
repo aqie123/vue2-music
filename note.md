@@ -102,4 +102,10 @@
             watch playing状态
           b.mapGetters: 'currentIndex','fullScreen','playlist','currentSong', 'playing'
           c.前进后退
+          d.播放结束 派发@timeupdate="updateTime"
+          e.显示歌曲播放时间
+        8.进度条 progress-bar.vue
+          a.引入到player.vue
+          b.进度条接收百分比  props ,watch percent
+            在player.vue计算属性percent,传入到组件，此时跟随歌曲进度前进
             
