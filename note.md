@@ -127,7 +127,13 @@
        11. audio播放结束 派发end事件
           music-list.vue 添加 random事件
             在store/actions.js添加randomPlay； 在mapActions引入
-          
+       12.播放歌词数据抓取
+          1.创建api/song.js
+          2.common/js/song.js 扩展 song类 getLyric()
+          3.在player.vue watch 调用common/js/song.js  getLyric接口
+          4.player.vue 引入 lyric-parser
+            methods 新建 getLyric  拿到lyric对象
+          5.添加歌词dom结构
             
           
             
