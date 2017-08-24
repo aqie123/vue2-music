@@ -140,6 +140,18 @@
             a.给middle绑定touch事件
             b.透明度切换 ，middle-l 加引用 ref
             c.歌词根据歌曲变化
+              watch
+              togglePlaying,loop,
+            d.拖拽歌曲歌词跟着变化
+              onProgressBarChange
+            e.cd下面歌词
+              handleLyric(执行)
+            f.getLyric()获取不到歌词
+            g.播放器底部适配
+              多个组件处理相同逻辑：common/js/mixin.js
+              1.music-list.vue   引入
+              2.singer.vue
+                在listview.vue 
             
           
             
