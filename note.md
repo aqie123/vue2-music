@@ -134,6 +134,12 @@
           4.player.vue 引入 lyric-parser
             methods 新建 getLyric  拿到lyric对象
           5.添加歌词dom结构
+          6.歌词滚动
+            a.
+          7.歌词切换
+            a.给middle绑定touch事件
+            b.透明度切换 ，middle-l 加引用 ref
+            c.歌词根据歌曲变化
             
           
             
