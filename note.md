@@ -152,6 +152,24 @@
               1.music-list.vue   引入
               2.singer.vue
                 在listview.vue 
+          13.歌单详情页
+              1.router/index.js  创建二级路由
+                recommend.vue 添加组件
+                router-view 对应二级路由容器
+              2.使用vuex传递歌单数据
+                a.state.js定义歌单对象 dis{}
+                b.mutation-types 添加 SET_DISC
+                c.mutation 添加更改函数 SET_DISC
+                d.getters export disc
+              3.recommend.vue 
+                a.引入 mapMutations
+                   在methods扩展  mapMutations 对应mutation-types
+                b.在点击函数 将setDisc传进去
+                c.在disc.vue接收vuex数据
+                    1.引入 mapGetters
+                    2.computed 引入 mapGetters 实现在this.disc访问到
+              4.
+                  
             
           
             
