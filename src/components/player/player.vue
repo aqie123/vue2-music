@@ -345,19 +345,21 @@
       },
       getLyric() {
         this.currentSong.getLyric().then((lyric) => {
+          if (this.currentSong.lyric !== lyric) {
+            return
+          }
           this.currentLyric = new Lyric(lyric, this.handleLyric)
+          console.log(this.currentLyric)
           if (this.playing) {
             this.currentLyric.play()
           }
-
-          console.log(this.currentLyric)
         }).catch(() => {
           this.currentLyric = null
           this.playingLyric = ''
           this.currentLineNum = 0
         })
       },
-      handleLyric(lineNum, txt) {
+      handleLyric({lineNum, txt}) {
         this.currentLineNum = lineNum
         if (lineNum > 5) {
           let lineEl = this.$refs.lyricLine[lineNum - 5]
@@ -581,7 +583,7 @@
               color: $color-text-l
               font-size: $font-size-medium
               &.current
-                color: $color-text
+                color: $color-lyric
       .bottom
         position: absolute
         bottom: 50px
