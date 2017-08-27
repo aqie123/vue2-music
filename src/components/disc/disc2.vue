@@ -6,12 +6,20 @@
 
 <script type="text/ecmascript-6">
   import MusicList from 'components/music-list/music-list'
+  import {mapGetters} from 'vuex'
   import {getSongList} from 'api/recommend'
   import {ERR_OK} from 'api/config'
-  import {mapGetters} from 'vuex'
-  import {createSong} from 'common/js/song'
+  // import {createSong} from 'common/js/song'
 
   export default {
+    data() {
+      return {
+        songs: []
+      }
+    },
+    components: {
+      MusicList
+    },
     computed: {
       title() {
         return this.disc.dissname
@@ -22,11 +30,6 @@
       ...mapGetters([
         'disc'
       ])
-    },
-    data() {
-      return {
-        songs: []
-      }
     },
     created() {
       this._getSongList()
@@ -39,11 +42,13 @@
         }
         getSongList(this.disc.dissid).then((res) => {
           if (res.code === ERR_OK) {
-            console.log('aaa')
-            this.songs = this._normalizeSongs(res.cdlist[0].songlist)
+            console.log(res.cdlist[0].songlist)
+            // this.songs = this._normalizeSongs(res.cdlist[0].songlist)
+            // console.log(this.songs)
           }
         })
-      },
+      }
+      /*,
       _normalizeSongs(list) {
         let ret = []
         list.forEach((musicData) => {
@@ -53,9 +58,7 @@
         })
         return ret
       }
-    },
-    components: {
-      MusicList
+      */
     }
   }
 </script>
@@ -63,7 +66,6 @@
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .slide-enter-active, .slide-leave-active
     transition: all 0.3s
-
   .slide-enter, .slide-leave-to
     transform: translate3d(100%, 0, 0)
 </style>

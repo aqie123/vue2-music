@@ -168,7 +168,12 @@
                 c.在disc.vue接收vuex数据
                     1.引入 mapGetters
                     2.computed 引入 mapGetters 实现在this.disc访问到
-              4.
+              4.歌单详情页数居
+                a.api/recommend,js  getSongList()
+                b.disc.vue 引入上面方法,在created()调用上面请求
+                  1._getSongList   获取歌单详情
+                  2.disc.vue 中 music-list 绑定songs,并在data定义
+                c.解决jsonp名称问题
                   
             
           
