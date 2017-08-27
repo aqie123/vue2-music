@@ -173,8 +173,55 @@
                 b.disc.vue 引入上面方法,在created()调用上面请求
                   1._getSongList   获取歌单详情
                   2.disc.vue 中 music-list 绑定songs,并在data定义
-                c.解决jsonp名称问题
-                  
-            
-          
-            
+                c.解决jsonp名称问题      
+           14.排行榜页面 rank.vue
+              1.新建api/rank
+              2.添加点击事件 selectItem(item)
+           15.榜单详情页布局 Vuex实现数据通讯
+              1.router/index.js 
+              2.vuex
+                a.states.js 定义 topList
+                b.mutation-types.js  SET_TOP_LIST
+                c.mutations.js  types.SET_TOP_LIST
+                d.getters.js   topList
+                e.rank.vue  引入 mapMutations
+                    methods 定义 ...mapMutations 是一个对象 setTopList
+                    就可以在上面跳转函数  this.setTopList(item)
+                f.top-list.vue 引入 mapGetters
+                    在computed  中 ...mapGetters
+                    然后在计算属性中 比如标题 ： this.topList.topTitle
+              3.抓取榜单详情歌曲数据
+                a.api/rank.js getMusicList(榜单ID)
+                b.top-list.vue created  获取 this._getMusicList()
+                  定义songs接收数据
+                c.获取一首歌曲图片
+           16.song-list 组件扩展
+              1.props 扩展字段 rank 
+              2.getRankCls
+              3.music-list props扩展 rank
+                并在 music-list.vue 将rank 传到song-list属性
+                top-list.vue 将data 传 rank: true
+           17.搜索页面
+              1. 
+                  a.components/suggest/suggest.vue
+                  b.api/search.js
+                  c.base/search-box/search-box.vue
+                  d.base/search-list/search-list
+                  e.base/confirm/confirm.vue
+                  f.base/no-result/no-result.vue
+              2.搜索框组件 （search-box.vue）
+                  1.props:placeholder 然后绑定
+                  2.v-model 双向绑定
+                  3.created watch query
+               3.热门搜索
+                  1.api/search.js
+                  2.search.vue 引入 {getHotKey}
+                    search-box  添加 setQuery(query)方法
+               4.新建suggest组件
+                  1.props 检索词
+                  2.api/search/search()
+                  3. suggest组件 引入search()
+                  4. suggest.vue this._genResult(res.data)
+                  5.getDisplayName
+                  6.search.vue 引入suggest组件
+                  7.search.vue 监听 search-box  onQueryChange
