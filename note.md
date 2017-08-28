@@ -218,10 +218,99 @@
                   2.search.vue 引入 {getHotKey}
                     search-box  添加 setQuery(query)方法
                4.新建suggest组件
-                  1.props 检索词
+                  1.props 检索词   watch query变化
                   2.api/search/search()
                   3. suggest组件 引入search()
                   4. suggest.vue this._genResult(res.data)
                   5.getDisplayName
                   6.search.vue 引入suggest组件
                   7.search.vue 监听 search-box  onQueryChange
+                  8. song : 歌曲数据
+                     zhida: 歌手数据
+                  9.上拉刷新 (扩展scroll组件)
+                    a.props: 传入 pullup
+                    b.methods 监听滚动scrollEnd事件
+                    c.suggest.vue data设置pullup
+                      监听 @scrollToEnd 
+                      suggest.vue perpage控制每页条数
+                    d.suggest.vue 加引用 ref="suggest"
+                      page = 1;
+                      this.$refs.suggest.scrollTo(0, 0)
+               5.search组件点击跳转到歌手列表
+                  1.添加  router-view
+                  2.route添加二级路由
+                  3.suggest组件监听 selectItem(item)
+                  4.methods 添加  ...mapMutations
+                  5.在上面点击方法 调用 this.setSinger(singer)
+                    就会在mutations.js 拿到state.singer
+                  6.singer-detail.vue
+                    ...mapGetters  取到singer
+               6.search组件点击 插入歌曲到当前列表
+                  1.state.js 修改 Playlist,sequenceList,(slice添加副本)currentIndex.
+                    通过操作mutation改变state
+                  2.action.js 定义动作  insertSong
+                  3.suggest.vue 引入 mapMutations mapActions
+                   并添加 ...mapActions  insertSong
+                   在上面方法直接调用 this.insertSong
+               7.suggest组件优化
+                  1.没有搜索结果
+                      定义基础组件 no-result在suggest.vue引入
+                  2.基础组件search-box组件
+                    create watch query 延时执行
+                    派发query事件->search.vue通过onQueryChange set this.query
+                    -> 传到suggest组件  监听输入框变化
+                    -> suggest.vue watch query 调用 this.search()
+                    目的 ： 防止输入一直请求
+                    方法 ： common/js/util.js 新建截流函数 debounce()
+                            在search-box.vue 引入 
+                  3.滚动搜索列表收起键盘
+                    1.扩展scroll组件 (Scroll->suggest->search)
+                        添加属性 ： beforeScroll (滚动开始派发beforeScrollStart)
+                        在scroll.vue判断,派发 beforeScroll
+                        在suggest.vue 
+                          data 添加beforeScroll ,传入到scroll组件中
+                          监听事件 @beforeScroll = listScroll()
+                          派发 listScroll事件
+                        search.vue 中suggest监听 @listScroll=blurInput
+                          调用子组件 search-box 方法
+                        search-box.vue
+                          1. ref="query"
+                          2. 添加blur方法
+               8.点击搜索关键词,保存到搜索历史(vuex)
+                  1.state.js : searchHistory
+                  2.mutation-type : SET_SEARCH_HISTORY
+                  3.mutations : state.searchHistory
+                  4.getters.js : searchHistory
+                  5.suggest.vue : 点击selectItem 派发select事件
+                    search.vue : 监听 @select="saveSearch"
+                  6.封装action 
+                  7.新建 common/js/cache.js 操作localStorage
+                    saveSearch()
+                    npm 安装 good-storage
+                  8.search.vue 调用action saveSearchHistory （点击搜索列表触发）
+                    存储到 ; searchHistory
+                    同时 ： localStorage 也可以查看
+                  9.cache.js 从本地缓存读取searchHistory  : loadSearch
+                    并在state.js引入 
+                  10.搜索历史渲染到dom
+                    search.vue computed 添加
+                  11.base/search-list组件
+               9.点击搜索历史填入到搜索框 及删除历史记录
+                  1.search-list.vue 派发点击事件;在search.vue实现 @select="addQuery"
+                  2.添加action  : deleteSearchHistory
+                  3.search.vue 中 search-list 派发 delete事件
+                  4.弹窗组件confirm.vue 在search.vue 引用
+                    基础组建 ： state props data methods events
+                    基础组建通过props传入外部数据
+                            通过 this.$refs.confirm.show() 调用基础组件方法
+               10.搜索页面滚动
+                  1. search.vue 引入Scroll组件        shortcut 变成scroll组件   
+                      在两个div外面套一个div,用来计算高度
+                      hotkey,searchHistory异步获取,定义shortcut计算属性
+                  2.watch query改变
+               11.播放歌曲重新计算搜索页面 playlist
+                  1.playlistMixin
+                  2.实现 handlePlaylist()
+                    添加 ; ref="shortcutWrapper" ; ref="searchResult"
+                    重新计算scroll高度
+                    给suggest.vue添加refresh()方法

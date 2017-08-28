@@ -32,7 +32,7 @@
           this.$refs.list.refresh()
         },
         selectSinger(singer) {
-          console.log('click')
+          // console.log('click')
           this.$router.push({
             path: `/singer/${singer.id}`
           })

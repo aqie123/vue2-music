@@ -349,7 +349,7 @@
             return
           }
           this.currentLyric = new Lyric(lyric, this.handleLyric)
-          console.log(this.currentLyric)
+          // console.log(this.currentLyric)
           if (this.playing) {
             this.currentLyric.play()
           }

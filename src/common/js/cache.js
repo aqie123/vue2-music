@@ -15,6 +15,7 @@ function insertArray(arr, val, compare, maxLen) {
     return
   }
   if (index > 0) {
+    // 删除之前数据再插入
     arr.splice(index, 1)
   }
   arr.unshift(val)
