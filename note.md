@@ -321,3 +321,14 @@
                 4.base/switches/switches
                 5.点击事件： @click.stop="showPlaylist"
                 6. 给scroll 加层引用 listContent ，加载数据后重新计算
+                7.给当前播放歌曲添加样式
+                  :class="getCurrentIcon(item)"
+                8.点击时跳转到当前播放歌曲
+                  @click="selectItem(item,index)
+                  scrollToCurrent(current)
+                  给li 加引用 ref="listItem"
+                9.watch 观测 currentSong
+                10.点击叉号，当前列表删除
+                  @click.stop="deleteOne(item)" 
+                  actions 定义deleteSong
+                11.
