@@ -95,12 +95,12 @@
         </progress-circle>
 
       </div>
-      <div class="control">
+      <div class="control" @click.stop="showPlaylist">
         <i class="icon-playlist"></i>
       </div>
     </div>
     </transition>
-    <playlist></playlist>
+    <playlist ref="playlist"></playlist>
     <audio :src="currentSong.url" ref="audio" @canplay="ready"
            @error="error" @timeupdate="updateTime" @ended="end"></audio>
   </div>
@@ -424,6 +424,9 @@
         this.$refs.middleL.style.opacity = opacity
         this.$refs.middleL.style[transitionDuration] = `${time}ms`
         this.touch.initiated = false
+      },
+      showPlaylist() {
+        this.$refs.playlist.show()
       },
       ...mapMutations({
         'setFullScreen': 'SET_FULL_SCREEN',
