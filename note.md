@@ -314,3 +314,6 @@
                     添加 ; ref="shortcutWrapper" ; ref="searchResult"
                     重新计算scroll高度
                     给suggest.vue添加refresh()方法
+          18. 歌曲列表组件  (playlist.vue)
+                1.player.vue 引入
+                2.components/add-song/add-song'
