@@ -331,4 +331,33 @@
                 10.点击叉号，当前列表删除
                   @click.stop="deleteOne(item)" 
                   actions 定义deleteSong
-                11.
+                  在play.vue 对 currentSong()  进行判断
+                11.playlist 添加confirm组件
+                12.创建 playerMixin (player.vue 和 playlist.vue组件共用)
+                13.添加歌曲到队列 (add-song.vue)
+                    a.定义显隐data ,并对外提供方法
+                    b.引入search-box.vue,组件绑定 @query=search
+                    c.引入suggest.vue  展示搜索内容
+                    d.showSinger: false,  不搜索歌手
+                14.定义 searchMixin (search.vue add-song.vue)
+                15.创建switch.vue组件 (添加歌曲页面tab切换)
+                16.最近播放列表 (Vuex playHistory)
+                    1.player.vue ready方法调用 .savePlayHistory()
+                      定义mapAction savePlayHistory
+                    2.本地缓存定义 PLAY_KEY
+                      定义 savePlay,loadPlay 方法
+                      state.js 从loadPlay() 读取初始值
+                    3.add-song.vue 通过 mapGetters拿到 播放历史
+                      引入song-list组件 承载播放列表
+                    4.点击最近播放列表 到当前播放列表
+                      add-song.vue 中的 song-list组件 @select=selectSong
+                    5.从缓存中取，需要引入song 类 然后实例化
+                    6.add-song.vue search-box 添加引用 ref='searchBox'
+                    7.add-song.vue 两个scroll 添加引用，并在show同时 refresh
+          19.新建base/top-tip组件
+            1.在add-song.vue引入
+            2.封装成showTip()
+            3.scroll 组件 将refreshDelay做成props ,并在watch替换
+              a. 在playlist.vue 中scroll 将refreshDelay传入
+              b.所有包裹 search-list  的scroll 组件都要添加 refreshDelay
+                add-song;search.vue  在searchMixin 中定义 refreshDelay

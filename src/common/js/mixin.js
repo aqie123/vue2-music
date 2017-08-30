@@ -52,7 +52,9 @@ export const playerMixin = {
       this.resetCurrentIndex(list)
       this.setPlaylist(list)
     },
+    // playlist改变，重新设置index 使song id不变
     resetCurrentIndex(list) {
+      // 从当前list找到song索引
       let index = list.findIndex((item) => {
         return item.id === this.currentSong.id
       })

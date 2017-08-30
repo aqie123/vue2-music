@@ -49,8 +49,7 @@
     mixins: [playlistMixin, searchMixin],
     data() {
       return {
-        hotKey: [],
-        query: ''
+        hotKey: []
       }
     },
     computed: {
@@ -77,9 +76,6 @@
       blurInput() {
         this.$refs.searchBox.blur()
       },
-      saveSearch() {
-        this.saveSearchHistory(this.query)
-      },
       _getHotKey() {
         getHotKey().then((res) => {
           if (res.code === ERR_OK) {
@@ -88,8 +84,7 @@
         })
       },
       ...mapActions([
-        'clearSearchHistory',
-        'saveSearchHistory'
+        'clearSearchHistory'
       ])
     },
     watch: {
