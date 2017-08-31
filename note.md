@@ -13,6 +13,7 @@
 		1.main.js入口文件
 		2.common/stylus  样式文件
 		3.common/fonts  字体文件
+		
 
 三： 1.cnpm install stylus-loader stylus --save-dev devDependencies --save dependencies  
     2.修改eslintrc,不检测新文件末尾是否空行； 
@@ -380,3 +381,11 @@
                   }
               3.只有一首歌 点击下一首不会ready
                 a. next loop 后加return 
+          22.编译打包
+              1. npm run build
+              2.路由懒加载
+              3.移动端调试
+                WechatFE/vConsole
+                npm install vconsole --save-dev
+                main.js 引入
+              4.移动端抓包

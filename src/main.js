@@ -12,6 +12,10 @@ fastclick.attach(document.body)
 Vue.use(VueLazyload, {
   loading: require('common/image/default.jpg')
 })
+/* eslint-disable no-unused-vars */
+// import vConsole from 'vconsole'
+
+// console.log('test')
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
