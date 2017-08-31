@@ -101,7 +101,7 @@
     </div>
     </transition>
     <playlist ref="playlist"></playlist>
-    <audio :src="currentSong.url" ref="audio" @canplay="ready"
+    <audio :src="currentSong.url" ref="audio" @play="ready"
            @error="error" @timeupdate="updateTime" @ended="end"></audio>
   </div>
 </template>
@@ -238,6 +238,7 @@
         }
         if (this.playlist.length === 1) {
           this.loop()
+          return
         } else {
           let index = this.currentIndex + 1
           if (index === this.playlist.length) {
@@ -256,6 +257,7 @@
         }
         if (this.playlist.length === 1) {
           this.loop()
+          return
         } else {
           let index = this.currentIndex - 1
           if (index === -1) {
@@ -430,7 +432,8 @@
           this.getLyric()
         })
         */
-        setTimeout(() => {
+        clearTimeout(this.timer)
+        this.timer = setTimeout(() => {
           this.$refs.audio.play()
           this.getLyric()
         }, 1000)

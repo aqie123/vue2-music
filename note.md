@@ -370,3 +370,13 @@
                 b.在common/js/cache 中引入
                 c.player.vue 修改样式
                 d.在common/js/mixin.js
+          21.bug修复
+              1.点击快歌词背景音乐都在播放
+                a.设置timer并清空
+                  audio 使用play
+              2.歌词不一致
+                a.if (this.currentSong.lyric !== lyric) {
+                    return
+                  }
+              3.只有一首歌 点击下一首不会ready
+                a. next loop 后加return 
