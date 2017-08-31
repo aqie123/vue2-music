@@ -45,6 +45,11 @@ const TopList = (resolve) => {
   })
 }
 
+const UserCenter = (resolve) => {
+  import('components/user-center/user-center').then((module) => {
+    resolve(module)
+  })
+}
 export default new Router({
   routes: [
     {
@@ -90,6 +95,10 @@ export default new Router({
           component: SingerDetail
         }
       ]
+    },
+    {
+      path: '/user',
+      component: UserCenter
     }
   ]
 })

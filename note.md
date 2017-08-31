@@ -355,9 +355,18 @@
                     6.add-song.vue search-box 添加引用 ref='searchBox'
                     7.add-song.vue 两个scroll 添加引用，并在show同时 refresh
           19.新建base/top-tip组件
-            1.在add-song.vue引入
+            1.在add-song.vue引入````````
             2.封装成showTip()
             3.scroll 组件 将refreshDelay做成props ,并在watch替换
               a. 在playlist.vue 中scroll 将refreshDelay传入
               b.所有包裹 search-list  的scroll 组件都要添加 refreshDelay
                 add-song;search.vue  在searchMixin 中定义 refreshDelay
+          20.新建 user-center.vue
+            1.m-header.vue  添加 router-link
+            2.在router/index.js  引入并添加路由
+            3.引入switches组件
+            4.收藏列表
+                a.定义actions
+                b.在common/js/cache 中引入
+                c.player.vue 修改样式
+                d.在common/js/mixin.js
